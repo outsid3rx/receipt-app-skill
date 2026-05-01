@@ -8,10 +8,7 @@
         try {
           const url = new URL('https://rzdeli/list')
 
-          const utf8 = new TextEncoder().encode(JSON.stringify(data))
-          const base64 = btoa(String.fromCharCode(...utf8))
-
-          url.searchParams.set('q', base64)
+          url.searchParams.set('q', utf8_to_b64(data))
 
           return JSON.stringify({
             result: 'Here is the interactive view.',
@@ -25,6 +22,10 @@
             error: `Failed: ${e.message}`,
           })
         }
+      }
+
+      function utf8_to_b64(str) {
+        return window.btoa(unescape(encodeURIComponent(str)));
       }
     </script>
   </body>
