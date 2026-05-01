@@ -9,4 +9,7 @@ description: Split the bill using the rzdeli.ru service
 
 Call the `run_js` tool with the following exact parameters:
 - script name: index.html
-- data: A JSON string with the items from the check in JSON format. If there are no items in the check, pass an empty array. The item names can be multiple lines long. The value field can be named "Сумма". Format: Array<{ title: string, price: number, count: number }>
+- data: A JSON string with the items from the check with format `Array<{ title: string, price: number, count: number }>` 
+- If there are no items in the check, pass an empty array. 
+- The item names can be multiple lines long. 
+- The price field can be named "Сумма".
